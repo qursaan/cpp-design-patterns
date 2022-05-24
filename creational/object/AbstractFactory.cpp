@@ -30,66 +30,50 @@ public:
 class GreenSquare : public ISquare
 {
 public:
-        draw(){
-        cout<< "[G]";
-    }
+        draw(){cout<< "[G]";}
 };
 
 class RedSquare : public ISquare
 {
 public:
-        draw(){
-        cout<< "[R]";
-    }
+        draw(){cout<< "[R]";}
 };
 
 class YellowCircle : public ICircle
 {
 public:
-        draw(){
-        cout<< "(Y)";
-    }
+        draw(){cout<< "(Y)";}
 };
 
 class GreenCircle : public ICircle
 {
 public:
-        draw(){
-        cout<< "(G)";
-    }
+        draw(){cout<< "(G)";}
 };
 
 class RedCircle : public ICircle
 {
 public:
-        draw(){
-        cout<< "(R)";
-    }
+        draw(){cout<< "(R)";}
 };
 
 
 class YellowDiamon : public IDiamon
 {
 public:
-    draw(){
-        cout<< "<Y>";
-    }
+    draw(){cout<< "<Y>";}
 };
 
 class GreenDiamon : public IDiamon
 {
 public:
-    draw(){
-        cout<< "<G>";
-    }
+    draw(){cout<< "<G>";}
 };
 
 class RedDiamon : public IDiamon
 {
 public:
-    draw(){
-        cout<< "<R>";
-    }
+    draw(){cout<< "<R>";}
 };
 
 class IShapeFactory {

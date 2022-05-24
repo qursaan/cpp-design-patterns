@@ -4,74 +4,74 @@ using namespace std;
 class ISquare
 {
 public:
-    virtual draw()=0;
+    virtual void draw()=0;
 };
 
 class ICircle
 {
 public:
-    virtual draw()=0;
+    virtual void draw()=0;
 };
 
 class IDiamon
 {
 public:
-    virtual draw()=0;
+    virtual void draw()=0;
 };
 
 class YellowSquare : public ISquare
 {
 public:
-    draw(){cout<< "[Y]";}
+    void draw(){cout<< "[Y]";}
 };
 
 class GreenSquare : public ISquare
 {
 public:
-    draw(){cout<< "[G]";}
+    void draw(){cout<< "[G]";}
 };
 
 class RedSquare : public ISquare
 {
 public:
-    draw(){cout<< "[R]";}
+    void draw(){cout<< "[R]";}
 };
 
 class YellowCircle : public ICircle
 {
 public:
-    draw(){cout<< "(Y)";}
+    void draw(){cout<< "(Y)";}
 };
 
 class GreenCircle : public ICircle
 {
 public:
-    draw(){cout<< "(G)";}
+   void draw(){cout<< "(G)";}
 };
 
 class RedCircle : public ICircle
 {
 public:
-    draw(){cout<< "(R)";}
+   void draw(){cout<< "(R)";}
 };
 
 
 class YellowDiamon : public IDiamon
 {
 public:
-    draw(){cout<< "<Y>";}
+   void draw(){cout<< "<Y>";}
 };
 
 class GreenDiamon : public IDiamon
 {
 public:
-    draw(){cout<< "<G>";}
+   void draw(){cout<< "<G>";}
 };
 
 class RedDiamon : public IDiamon
 {
 public:
-    draw(){cout<< "<R>";}
+   void draw(){cout<< "<R>";}
 };
 
 class IShapeFactory {
@@ -110,6 +110,12 @@ int main()
     s1->draw();
     s2->draw();
     s3->draw();
+
+
+    delete factory;
+    delete s1;
+    delete s2;
+    delete s3;
 
     return 0;
 }

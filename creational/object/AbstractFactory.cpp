@@ -111,11 +111,5 @@ int main()
     s2->draw();
     s3->draw();
 
-
-    delete factory;
-    delete s1;
-    delete s2;
-    delete s3;
-
     return 0;
 }

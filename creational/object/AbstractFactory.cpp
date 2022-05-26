@@ -123,18 +123,19 @@ int main()
     IShapeFactory *f1 = new YellowFactory();
     ClientCode(*f1);
     delete f1;
-    cout<< endl;
+    cout<< endl << endl;
 
     cout << "Client: Testing clientCode with the Green factory type:\n";
     IShapeFactory *f2 = new GreenFactory();
     ClientCode(*f2);
     delete f2;
-    cout<< endl;
+    cout<< endl << endl;
 
-    cout << "Client: Testing clientCode with the Blue factory type:\n";
+    cout << "Client: Testing clientCode with the Red factory type:\n";
     IShapeFactory *f3 = new RedFactory();
     ClientCode(*f3);
     delete f3;
-
+    cout << endl << endl;
+    
     return 0;
 }

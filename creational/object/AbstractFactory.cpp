@@ -4,112 +4,137 @@ using namespace std;
 class ISquare
 {
 public:
-    virtual void draw()=0;
+    virtual ~ISquare(){}
+    virtual void draw()const =0;
 };
 
 class ICircle
 {
 public:
-    virtual void draw()=0;
+    virtual ~ICircle(){}
+    virtual void draw()const =0;
 };
 
 class IDiamon
 {
 public:
-    virtual void draw()=0;
+    virtual ~IDiamon(){}
+    virtual void draw()const =0;
 };
 
 class YellowSquare : public ISquare
 {
 public:
-    void draw(){cout<< "[Y]";}
+    void draw()const {cout<< "[Y]";}
 };
 
 class GreenSquare : public ISquare
 {
 public:
-    void draw(){cout<< "[G]";}
+    void draw()const {cout<< "[G]";}
 };
 
 class RedSquare : public ISquare
 {
 public:
-    void draw(){cout<< "[R]";}
+    void draw()const {cout<< "[R]";}
 };
 
 class YellowCircle : public ICircle
 {
 public:
-    void draw(){cout<< "(Y)";}
+    void draw()const {cout<< "(Y)";}
 };
 
 class GreenCircle : public ICircle
 {
 public:
-   void draw(){cout<< "(G)";}
+   void draw()const {cout<< "(G)";}
 };
 
 class RedCircle : public ICircle
 {
 public:
-   void draw(){cout<< "(R)";}
+   void draw()const {cout<< "(R)";}
 };
 
 
 class YellowDiamon : public IDiamon
 {
 public:
-   void draw(){cout<< "<Y>";}
+   void draw()const {cout<< "<Y>";}
 };
 
 class GreenDiamon : public IDiamon
 {
 public:
-   void draw(){cout<< "<G>";}
+   void draw()const {cout<< "<G>";}
 };
 
 class RedDiamon : public IDiamon
 {
 public:
-   void draw(){cout<< "<R>";}
+   void draw()const {cout<< "<R>";}
 };
 
 class IShapeFactory {
 public:
-    virtual ISquare* createSquare()=0;
-    virtual IDiamon* createDiamon()=0;
-    virtual ICircle* createCircle()=0;
+    virtual ~IShapeFactory(){};
+    virtual ISquare* createSquare()const =0;
+    virtual IDiamon* createDiamon()const =0;
+    virtual ICircle* createCircle()const =0;
 };
 
 class YellowFactory: public IShapeFactory {
 public:
-    ISquare* createSquare(){return new YellowSquare;}
-    IDiamon* createDiamon(){return new YellowDiamon;}
-    ICircle* createCircle(){return new YellowCircle;}
+    ISquare* createSquare()const {return new YellowSquare;}
+    IDiamon* createDiamon()const {return new YellowDiamon;}
+    ICircle* createCircle()const {return new YellowCircle;}
 };
 class RedFactory: public IShapeFactory {
 public:
-    ISquare* createSquare(){return new RedSquare;}
-    IDiamon* createDiamon(){return new RedDiamon;}
-    ICircle* createCircle(){return new RedCircle;}
+    ISquare* createSquare()const {return new RedSquare;}
+    IDiamon* createDiamon()const {return new RedDiamon;}
+    ICircle* createCircle()const {return new RedCircle;}
 };
 class GreenFactory: public IShapeFactory {
 public:
-    ISquare* createSquare(){return new GreenSquare;}
-    IDiamon* createDiamon(){return new GreenDiamon;}
-    ICircle* createCircle(){return new GreenCircle;}
+    ISquare* createSquare()const {return new GreenSquare;}
+    IDiamon* createDiamon()const {return new GreenDiamon;}
+    ICircle* createCircle()const {return new GreenCircle;}
 };
-int main()
-{
-    IShapeFactory *factory = new YellowFactory(); //try another factory without any change
 
-    ISquare*s1 = factory->createSquare();
-    ICircle*s2 = factory->createCircle();
-    IDiamon*s3 = factory->createDiamon();
+void ClientCode(const IShapeFactory &factory){
+    const ISquare*s1 = factory.createSquare();
+    const ICircle*s2 = factory.createCircle();
+    const IDiamon*s3 = factory.createDiamon();
 
     s1->draw();
     s2->draw();
     s3->draw();
+    delete s1;
+    delete s2;
+    delete s3;
+}
+
+int main()
+{
+    cout << "Client: Testing clientCode with the Yellow factory type:\n";
+    IShapeFactory *f1 = new YellowFactory();
+    ClientCode(*f1);
+    delete f1;
+    cout<< endl;
+
+    cout << "Client: Testing clientCode with the Green factory type:\n";
+    IShapeFactory *f2 = new GreenFactory();
+    ClientCode(*f2);
+    delete f2;
+    cout<< endl;
+
+    cout << "Client: Testing clientCode with the Blue factory type:\n";
+    IShapeFactory *f3 = new RedFactory();
+    ClientCode(*f3);
+    delete f3;
 
     return 0;
 }

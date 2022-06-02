@@ -1,3 +1,4 @@
+// Qursaan(c) Copyright
 #include <iostream>
 using namespace std;
 

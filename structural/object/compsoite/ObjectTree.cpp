@@ -7,12 +7,14 @@
 #include <iostream>
 using namespace std;
 
+// Create an interface for all items
 class Item {
 public:
     virtual float getPrice() = 0;
     virtual void print() = 0;
 };
 
+// Create a product class that implements the item interface
 class Product : public Item {
 private:
     string name;
@@ -35,6 +37,7 @@ public:
     }
 };
 
+// Create a box class that implements the item interface and can contain other items
 class Box : public Item {
 private:
     string name;
@@ -74,6 +77,7 @@ public:
     }
 };
 
+// Create a main function to test the code
 int main() {
    
     // Create some products

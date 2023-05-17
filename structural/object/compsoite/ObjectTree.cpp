@@ -76,7 +76,6 @@ public:
 
 int main() {
    
-    
     // Create some products
     Item* laptop = new Product("Laptop", 1000, "Electronics");
     Item* book = new Product("Book", 20, "Books");
@@ -95,6 +94,7 @@ int main() {
     box2->add(phone);
 
     // Print the contents of the second box
+    cout << "Printing the contents of the second box:" << endl;
     box2->print();
     
     // Calculate the total price of the second box

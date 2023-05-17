@@ -1,4 +1,9 @@
-// Qursaan(c) Copyright
+// Copyright (c) 2023, qursaan
+// All rights reserved.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// See the LICENSE file in the root of this project for more information.
+
 #include <iostream>
 using namespace std;
 
